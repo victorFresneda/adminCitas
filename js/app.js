@@ -18,6 +18,11 @@ class Citas {
        this.citas = [];
    }
 
+   agregarCita(cita){
+       this.citas = [...this.citas, cita];
+       console.log(this.citas);
+   }
+
 }
 
 
@@ -112,5 +117,33 @@ function nuevaCita(e) {
         return;
     }
 
+    //Generar un id unico
+
+    citaObj.id = Date.now();
+
+    // Creando nueva cita 
+
+    administrarCitas.agregarCita({...citaObj});
+
+    //Reinicia objeto para la validacion 
+
+    reiniciarObjeto();
+
+    //Reiniciar el formulario 
+
+    formulario.reset();
+
+    //Mostrar el HTML
+
 }
+
+function reiniciarObjeto(){
+    citaObj. mascota = '';
+    citaObj. propietario = '';
+    citaObj. telefono = '';
+    citaObj. fecha = '';
+    citaObj. hora = '';
+    citaObj. sintomas = '';
+}
+
 
